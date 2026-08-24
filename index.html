@@ -10,35 +10,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO -->
-  <title>Raj.com | Raj's Personal Portfolio</title>
+  <title>Raj.com | Official Personal Portfolio</title>
   <meta name="description"
-        content="Welcome to Raj.com — Raj's personal portfolio, skills, projects, achievements and learning journey.">
+        content="Raj.com is Raj's personal portfolio website featuring his interests, skills, projects, achievements and future goals.">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#080808">
 
   <style>
     :root {
-      --bg: #070707;
-      --bg2: #101010;
+      --bg: #050505;
       --card: rgba(255,255,255,.06);
+      --border: rgba(255,255,255,.12);
       --text: #ffffff;
       --muted: #a7a7a7;
-      --border: rgba(255,255,255,.12);
-      --accent: #ff2020;
-      --accent2: #ff5555;
-      --shadow: rgba(0,0,0,.35);
-    }
-
-    body.light {
-      --bg: #f5f5f5;
-      --bg2: #ffffff;
-      --card: rgba(0,0,0,.05);
-      --text: #111111;
-      --muted: #555555;
-      --border: rgba(0,0,0,.12);
-      --accent: #d90000;
-      --accent2: #ff2020;
-      --shadow: rgba(0,0,0,.12);
+      --red: #ff1f1f;
+      --red2: #ff5757;
     }
 
     * {
@@ -55,245 +40,199 @@
       font-family: Arial, Helvetica, sans-serif;
       background:
         radial-gradient(circle at 10% 10%, rgba(255,0,0,.08), transparent 25%),
+        radial-gradient(circle at 90% 50%, rgba(255,0,0,.06), transparent 30%),
         var(--bg);
       color: var(--text);
       line-height: 1.6;
       overflow-x: hidden;
-      transition: background .3s, color .3s;
     }
 
-    /* HEADER */
+    /* ================= HEADER ================= */
 
     header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      padding: 15px 7%;
+      padding: 16px 7%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(7,7,7,.78);
+      background: rgba(5,5,5,.78);
       backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--border);
-    }
-
-    body.light header {
-      background: rgba(255,255,255,.85);
     }
 
     .logo {
       font-size: 27px;
       font-weight: 900;
-      color: var(--accent);
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
+      color: var(--red);
+      letter-spacing: .5px;
     }
 
     nav a {
-      color: var(--text);
+      color: #ddd;
       text-decoration: none;
       margin-left: 18px;
       font-size: 14px;
-      transition: .2s;
+      transition: .25s;
     }
 
     nav a:hover {
-      color: var(--accent);
+      color: var(--red2);
     }
 
-    .theme-btn,
-    .menu-btn {
-      border: 1px solid var(--border);
-      background: var(--card);
-      color: var(--text);
-      cursor: pointer;
-      border-radius: 8px;
-      padding: 8px 10px;
-      margin-left: 10px;
-      font-size: 16px;
-    }
-
-    .menu-btn {
-      display: none;
-    }
-
-    /* HERO */
+    /* ================= HERO ================= */
 
     .hero {
       min-height: 92vh;
-      padding: 70px 7%;
-      display: grid;
-      grid-template-columns: 1.3fr .7fr;
-      gap: 40px;
+      padding: 80px 7%;
+      display: flex;
       align-items: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: rgba(255,0,0,.13);
+      filter: blur(100px);
+      right: 5%;
+      top: 20%;
+      animation: float 5s ease-in-out infinite;
     }
 
     .hero-content {
-      animation: fadeUp .9s ease;
+      max-width: 850px;
+      position: relative;
+      z-index: 2;
+      animation: fadeUp 1s ease;
     }
 
     .tag {
       display: inline-block;
-      padding: 8px 15px;
+      padding: 8px 16px;
       border: 1px solid rgba(255,40,40,.45);
       border-radius: 30px;
-      color: var(--accent2);
-      margin-bottom: 20px;
+      color: #ff7777;
+      background: rgba(255,0,0,.05);
       font-size: 13px;
+      margin-bottom: 22px;
     }
 
     .hero h1 {
-      font-size: clamp(52px, 8vw, 92px);
-      line-height: 1;
-      margin-bottom: 20px;
+      font-size: clamp(55px, 10vw, 105px);
+      line-height: .98;
+      margin-bottom: 25px;
     }
 
     .hero h1 span {
-      color: var(--accent);
-    }
-
-    .typing {
-      color: var(--accent2);
-      font-size: 21px;
-      font-weight: 700;
-      min-height: 32px;
-      margin-bottom: 15px;
+      color: var(--red);
+      text-shadow: 0 0 35px rgba(255,0,0,.35);
     }
 
     .hero p {
-      max-width: 650px;
       color: var(--muted);
-      font-size: 17px;
-      margin-bottom: 28px;
+      font-size: 18px;
+      max-width: 680px;
+      margin-bottom: 32px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     .btn {
       display: inline-block;
-      padding: 12px 20px;
-      background: var(--accent);
-      color: white;
-      text-decoration: none;
+      padding: 13px 21px;
       border-radius: 9px;
+      text-decoration: none;
       font-weight: 700;
-      margin: 5px 7px 5px 0;
+      color: white;
+      background: var(--red);
       transition: .25s;
     }
 
     .btn:hover {
       transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(255,0,0,.2);
+      box-shadow: 0 10px 30px rgba(255,0,0,.2);
     }
 
     .btn-outline {
       background: transparent;
-      border: 1px solid var(--accent);
-      color: var(--text);
+      border: 1px solid rgba(255,50,50,.5);
     }
 
-    /* PROFILE CARD */
-
-    .profile-card {
-      padding: 32px;
-      text-align: center;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      backdrop-filter: blur(15px);
-      box-shadow: 0 20px 50px var(--shadow);
-      animation: float 5s ease-in-out infinite;
-    }
-
-    .avatar {
-      width: 110px;
-      height: 110px;
-      margin: auto;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #700000, #ff2020);
-      font-size: 45px;
-      font-weight: 900;
-    }
-
-    .profile-card h2 {
-      margin-top: 18px;
-    }
-
-    .profile-card p {
-      color: var(--muted);
-      margin-top: 5px;
-    }
-
-    .class-badge {
-      display: inline-block;
-      margin-top: 18px;
-      padding: 8px 14px;
-      border-radius: 20px;
-      background: rgba(255,0,0,.1);
-      border: 1px solid rgba(255,0,0,.3);
-      color: var(--accent2);
-      font-size: 13px;
-    }
-
-    /* GENERAL */
+    /* ================= GENERAL ================= */
 
     section {
-      padding: 85px 7%;
-    }
-
-    .dark-section {
-      background: var(--bg2);
+      padding: 90px 7%;
     }
 
     .section-title {
-      font-size: 40px;
-      margin-bottom: 10px;
+      font-size: 42px;
+      margin-bottom: 12px;
     }
 
     .section-title span {
-      color: var(--accent);
+      color: var(--red);
     }
 
     .section-description {
-      color: var(--muted);
-      margin-bottom: 35px;
+      color: #858585;
+      margin-bottom: 38px;
     }
 
     .glass {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 17px;
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(14px);
+      border-radius: 18px;
     }
 
-    /* STATS */
+    /* ================= ABOUT ================= */
 
-    .stats {
+    .about-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 25px;
     }
 
-    .stat {
-      text-align: center;
-      padding: 25px;
+    .about-card {
+      padding: 30px;
     }
 
-    .stat-number {
-      font-size: 40px;
-      font-weight: 900;
-      color: var(--accent);
+    .about-card p {
+      color: #aaa;
+      font-size: 16px;
     }
 
-    .stat p {
-      color: var(--muted);
+    .quick-info {
+      display: grid;
+      gap: 15px;
     }
 
-    /* SKILLS */
+    .info {
+      padding: 20px;
+    }
+
+    .info strong {
+      display: block;
+      color: var(--red2);
+      font-size: 21px;
+      margin-bottom: 3px;
+    }
+
+    .info span {
+      color: #999;
+      font-size: 13px;
+    }
+
+    /* ================= SKILLS ================= */
 
     .skills {
       display: grid;
@@ -302,23 +241,23 @@
     }
 
     .skill {
-      padding: 22px;
+      padding: 23px;
     }
 
     .skill-head {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
-    .skill-head span {
-      color: var(--accent2);
+    .skill-head span:last-child {
+      color: #ff5555;
       font-size: 13px;
     }
 
     .bar {
       height: 8px;
-      background: rgba(128,128,128,.2);
+      background: rgba(255,255,255,.08);
       border-radius: 20px;
       overflow: hidden;
     }
@@ -326,25 +265,11 @@
     .bar span {
       display: block;
       height: 100%;
-      background: linear-gradient(90deg, #a00000, #ff3030);
+      background: linear-gradient(90deg, #b00000, #ff3030);
+      border-radius: inherit;
     }
 
-    /* TOOLS */
-
-    .tools {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .tool {
-      padding: 12px 17px;
-      border: 1px solid var(--border);
-      border-radius: 30px;
-      background: var(--card);
-    }
-
-    /* PROJECTS */
+    /* ================= PROJECTS ================= */
 
     .projects {
       display: grid;
@@ -353,109 +278,153 @@
     }
 
     .project {
-      padding: 25px;
+      padding: 26px;
       transition: .3s;
     }
 
     .project:hover {
       transform: translateY(-8px);
-      border-color: var(--accent);
+      border-color: rgba(255,30,30,.45);
     }
 
     .project-icon {
       font-size: 35px;
-      margin-bottom: 12px;
+      margin-bottom: 15px;
     }
 
     .project h3 {
-      color: var(--accent2);
-      margin-bottom: 8px;
+      color: #ff4a4a;
+      margin-bottom: 9px;
     }
 
     .project p {
-      color: var(--muted);
+      color: #999;
       font-size: 14px;
     }
 
-    /* TIMELINE */
-
-    .timeline {
-      max-width: 850px;
-      border-left: 2px solid var(--accent);
-      padding-left: 25px;
+    .project-label {
+      display: inline-block;
+      margin-top: 18px;
+      color: #777;
+      font-size: 11px;
+      letter-spacing: 1px;
     }
 
-    .timeline-item {
-      position: relative;
-      padding: 22px;
-      margin-bottom: 18px;
+    /* ================= ACHIEVEMENTS ================= */
+
+    .achievements {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
     }
 
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--accent);
-      left: -32px;
-      top: 28px;
-    }
-
-    .timeline-item h3 {
-      color: var(--accent2);
-    }
-
-    .timeline-item p {
-      color: var(--muted);
-    }
-
-    /* CONTACT */
-
-    .contact {
+    .achievement {
+      padding: 27px;
       text-align: center;
     }
 
+    .achievement-icon {
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .achievement h3 {
+      color: #ff4040;
+      margin-bottom: 6px;
+    }
+
+    .achievement p {
+      color: #999;
+      font-size: 14px;
+    }
+
+    /* ================= GOALS ================= */
+
+    .goal-list {
+      max-width: 900px;
+      display: grid;
+      gap: 15px;
+    }
+
+    .goal {
+      padding: 22px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .goal-icon {
+      font-size: 27px;
+    }
+
+    .goal h3 {
+      margin-bottom: 3px;
+    }
+
+    .goal p {
+      color: #999;
+      font-size: 14px;
+    }
+
+    /* ================= CONTACT ================= */
+
+    .contact {
+      text-align: center;
+      padding-top: 110px;
+      padding-bottom: 110px;
+    }
+
     .contact p {
-      color: var(--muted);
+      color: #999;
       margin: 10px auto 25px;
-      max-width: 600px;
+      max-width: 550px;
     }
 
-    /* TOP */
-
-    #topBtn {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      background: var(--card);
-      color: var(--text);
-      cursor: pointer;
-      display: none;
-      z-index: 999;
-      font-size: 18px;
+    .socials {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
-    /* FOOTER */
+    /* ================= FOOTER ================= */
 
     footer {
       text-align: center;
       padding: 28px;
-      color: var(--muted);
       border-top: 1px solid var(--border);
+      color: #666;
       font-size: 13px;
     }
 
-    /* ANIMATION */
+    /* ================= TOP BUTTON ================= */
+
+    #topBtn {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 44px;
+      height: 44px;
+      border: 1px solid #444;
+      border-radius: 50%;
+      background: #151515;
+      color: white;
+      cursor: pointer;
+      font-size: 18px;
+      display: none;
+      z-index: 999;
+    }
+
+    #topBtn:hover {
+      background: var(--red);
+    }
+
+    /* ================= ANIMATIONS ================= */
 
     @keyframes fadeUp {
       from {
         opacity: 0;
-        transform: translateY(25px);
+        transform: translateY(30px);
       }
 
       to {
@@ -470,11 +439,11 @@
       }
 
       50% {
-        transform: translateY(-12px);
+        transform: translateY(-25px);
       }
     }
 
-    /* MOBILE */
+    /* ================= MOBILE ================= */
 
     @media (max-width: 850px) {
 
@@ -482,60 +451,45 @@
         padding: 14px 5%;
       }
 
-      .menu-btn {
-        display: inline-block;
-      }
-
       nav {
-        display: none;
-        position: absolute;
-        top: 66px;
-        left: 5%;
-        right: 5%;
-        padding: 15px;
-        flex-direction: column;
-        align-items: stretch;
-        background: var(--bg2);
-        border: 1px solid var(--border);
-        border-radius: 14px;
-      }
-
-      nav.show {
-        display: flex;
+        max-width: 70%;
+        text-align: right;
       }
 
       nav a {
-        padding: 11px;
-        margin: 0;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-        padding: 55px 5%;
+        margin-left: 8px;
+        font-size: 11px;
       }
 
       section {
         padding: 65px 5%;
       }
 
-      .stats,
-      .skills,
-      .projects {
+      .hero {
+        min-height: 85vh;
+        padding: 60px 5%;
+      }
+
+      .about-grid,
+      .skills {
+        grid-template-columns: 1fr;
+      }
+
+      .projects,
+      .achievements {
         grid-template-columns: 1fr;
       }
 
       .section-title {
-        font-size: 33px;
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 16px;
       }
 
       .hero h1 {
-        font-size: clamp(50px, 16vw, 75px);
-      }
-
-      .profile-card {
-        max-width: 400px;
-        width: 100%;
-        margin: auto;
+        font-size: clamp(52px, 17vw, 78px);
       }
     }
   </style>
@@ -545,28 +499,17 @@
 
   <!-- HEADER -->
   <header>
-
     <div class="logo">Raj.com</div>
 
-    <nav id="nav">
+    <nav>
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
-      <a href="#journey">Journey</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#goals">Goals</a>
       <a href="#contact">Contact</a>
     </nav>
-
-    <div>
-      <button class="theme-btn" onclick="toggleTheme()" title="Change theme">
-        🌓
-      </button>
-
-      <button class="menu-btn" onclick="toggleMenu()" title="Menu">
-        ☰
-      </button>
-    </div>
-
   </header>
 
 
@@ -576,42 +519,28 @@
     <div class="hero-content">
 
       <div class="tag">
-        ✦ Welcome to Raj.com
+        ✦ Personal Portfolio • Raj.com
       </div>
 
       <h1>
-        Hi, I'm <span>Raj</span>.
+        Hello, I'm <span>Raj</span>.
       </h1>
 
-      <div class="typing" id="typing"></div>
-
       <p>
-        Welcome to my personal portfolio. Explore my skills,
-        projects, achievements and learning journey.
+        Welcome to my digital space. Here you can explore my
+        interests, skills, projects, achievements and future goals.
       </p>
 
-      <a class="btn" href="#projects">
-        🚀 View Projects
-      </a>
+      <div class="buttons">
 
-      <a class="btn btn-outline" href="#contact">
-        📩 Contact
-      </a>
+        <a class="btn" href="#projects">
+          🚀 Explore Projects
+        </a>
 
-    </div>
+        <a class="btn btn-outline" href="#contact">
+          📩 Connect
+        </a>
 
-
-    <!-- PROFILE CARD -->
-    <div class="profile-card">
-
-      <div class="avatar">R</div>
-
-      <h2>Raj</h2>
-
-      <p>Personal Portfolio</p>
-
-      <div class="class-badge">
-        📚 Class 11 Student
       </div>
 
     </div>
@@ -620,55 +549,44 @@
 
 
   <!-- ABOUT -->
-  <section class="dark-section" id="about">
+  <section id="about">
 
     <h2 class="section-title">
       About <span>Me</span>
     </h2>
 
     <p class="section-description">
-      A quick introduction.
+      A little introduction about me.
     </p>
 
-    <div class="glass" style="padding:28px;max-width:850px">
+    <div class="about-grid">
 
-      <p style="color:var(--muted)">
-        I'm Raj. This is my personal website where I share my
-        learning journey, interests, skills and projects.
-        I enjoy exploring technology and learning new things.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- STATS -->
-  <section>
-
-    <h2 class="section-title">
-      My <span>Stats</span>
-    </h2>
-
-    <p class="section-description">
-      A few simple numbers from my journey.
-    </p>
-
-    <div class="stats">
-
-      <div class="glass stat">
-        <div class="stat-number" data-target="11">0</div>
-        <p>Class</p>
+      <div class="glass about-card">
+        <p>
+          I'm Raj. This is my personal website where I share my
+          learning journey, interests, skills and projects.
+          I enjoy exploring technology, learning new concepts
+          and building things for the future.
+        </p>
       </div>
 
-      <div class="glass stat">
-        <div class="stat-number" data-target="1">0</div>
-        <p>Website</p>
-      </div>
+      <div class="quick-info">
 
-      <div class="glass stat">
-        <div class="stat-number" data-target="3">0</div>
-        <p>Projects</p>
+        <div class="glass info">
+          <strong>📚 Learning</strong>
+          <span>Always improving my knowledge.</span>
+        </div>
+
+        <div class="glass info">
+          <strong>💻 Technology</strong>
+          <span>Interested in web and digital technology.</span>
+        </div>
+
+        <div class="glass info">
+          <strong>🚀 Future</strong>
+          <span>Focused on learning and growth.</span>
+        </div>
+
       </div>
 
     </div>
@@ -677,14 +595,14 @@
 
 
   <!-- SKILLS -->
-  <section class="dark-section" id="skills">
+  <section id="skills">
 
     <h2 class="section-title">
-      Skills & <span>Tools</span>
+      My <span>Skills</span>
     </h2>
 
     <p class="section-description">
-      Things I am learning and exploring.
+      Things I am currently learning and improving.
     </p>
 
     <div class="skills">
@@ -731,18 +649,6 @@
 
     </div>
 
-    <h3 style="margin:35px 0 15px;color:var(--accent2)">
-      🛠️ Tools I Use
-    </h3>
-
-    <div class="tools">
-      <div class="tool">HTML</div>
-      <div class="tool">CSS</div>
-      <div class="tool">GitHub</div>
-      <div class="tool">GitHub Pages</div>
-      <div class="tool">Google Search Console</div>
-    </div>
-
   </section>
 
 
@@ -750,63 +656,40 @@
   <section id="projects">
 
     <h2 class="section-title">
-      My <span>Projects</span>
+      Featured <span>Projects</span>
     </h2>
 
     <p class="section-description">
-      Projects I have created and future ideas.
+      My current and upcoming projects.
     </p>
 
     <div class="projects">
 
       <div class="glass project">
-
         <div class="project-icon">🌐</div>
-
         <h3>Raj.com</h3>
-
         <p>
-          My personal portfolio website built using HTML and CSS.
+          My personal portfolio website built with HTML and CSS.
         </p>
-
-        <a class="btn" href="#home" style="margin-top:18px">
-          Open
-        </a>
-
+        <span class="project-label">LIVE PROJECT</span>
       </div>
 
-
       <div class="glass project">
-
-        <div class="project-icon">🚀</div>
-
+        <div class="project-icon">⚡</div>
         <h3>Future Website</h3>
-
         <p>
-          A new website project that I plan to build in the future.
+          A future website project that I plan to build and publish.
         </p>
-
-        <span style="color:var(--muted);font-size:12px">
-          COMING SOON
-        </span>
-
+        <span class="project-label">COMING SOON</span>
       </div>
 
-
       <div class="glass project">
-
         <div class="project-icon">💡</div>
-
-        <h3>New Project</h3>
-
+        <h3>New Ideas</h3>
         <p>
-          More creative projects and experiments will be added here.
+          More creative projects and experiments will appear here.
         </p>
-
-        <span style="color:var(--muted);font-size:12px">
-          PLANNED
-        </span>
-
+        <span class="project-label">PLANNED</span>
       </div>
 
     </div>
@@ -814,49 +697,99 @@
   </section>
 
 
-  <!-- JOURNEY -->
-  <section class="dark-section" id="journey">
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements">
 
     <h2 class="section-title">
       My <span>Journey</span>
     </h2>
 
     <p class="section-description">
-      A simple timeline of my learning journey.
+      Milestones and things I am working toward.
     </p>
 
-    <div class="timeline">
+    <div class="achievements">
 
-      <div class="glass timeline-item">
-
-        <h3>📚 Class 11</h3>
-
+      <div class="glass achievement">
+        <div class="achievement-icon">🌐</div>
+        <h3>Raj.com</h3>
         <p>
-          Currently studying in Class 11 and continuing my learning journey.
+          Created my own personal website.
         </p>
-
       </div>
 
-
-      <div class="glass timeline-item">
-
-        <h3>🌐 Raj.com</h3>
-
+      <div class="glass achievement">
+        <div class="achievement-icon">💻</div>
+        <h3>Web Learning</h3>
         <p>
-          Created and published my own personal website.
+          Learning how websites are created.
         </p>
-
       </div>
 
-
-      <div class="glass timeline-item">
-
-        <h3>🚀 Next Step</h3>
-
+      <div class="glass achievement">
+        <div class="achievement-icon">🚀</div>
+        <h3>Future Builder</h3>
         <p>
-          Keep learning, building and improving my skills.
+          Continuing to learn and build new projects.
         </p>
+      </div>
 
+    </div>
+
+  </section>
+
+
+  <!-- GOALS -->
+  <section id="goals">
+
+    <h2 class="section-title">
+      Future <span>Goals</span>
+    </h2>
+
+    <p class="section-description">
+      What I want to achieve in the future.
+    </p>
+
+    <div class="goal-list">
+
+      <div class="glass goal">
+        <div class="goal-icon">🎯</div>
+        <div>
+          <h3>Keep Learning</h3>
+          <p>
+            Learn new concepts and improve my skills.
+          </p>
+        </div>
+      </div>
+
+      <div class="glass goal">
+        <div class="goal-icon">💻</div>
+        <div>
+          <h3>Build Projects</h3>
+          <p>
+            Create useful websites and digital projects.
+          </p>
+        </div>
+      </div>
+
+      <div class="glass goal">
+        <div class="goal-icon">📈</div>
+        <div>
+          <h3>Grow</h3>
+          <p>
+            Continue developing my knowledge and abilities.
+          </p>
+        </div>
+      </div>
+
+      <div class="glass goal">
+        <div class="goal-icon">🚀</div>
+        <div>
+          <h3>Future Career</h3>
+          <p>
+            Work toward my education and future career goals.
+          </p>
+        </div>
       </div>
 
     </div>
@@ -872,16 +805,20 @@
     </h2>
 
     <p>
-      Follow my journey and connect with me on Instagram.
+      Want to follow my journey? Connect with me on Instagram.
     </p>
 
-    <a
-      class="btn"
-      href="https://www.instagram.com/official.raj_9559/"
-      target="_blank"
-      rel="noopener noreferrer">
-      📸 Instagram
-    </a>
+    <div class="socials">
+
+      <a
+        class="btn"
+        href="https://www.instagram.com/official.raj_9559/"
+        target="_blank"
+        rel="noopener noreferrer">
+        📸 Instagram
+      </a>
+
+    </div>
 
   </section>
 
@@ -893,139 +830,21 @@
 
 
   <!-- BACK TO TOP -->
-  <button id="topBtn"
-          onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
     ↑
   </button>
 
 
   <script>
-
-    /* MOBILE MENU */
-
-    function toggleMenu() {
-      document.getElementById("nav").classList.toggle("show");
-    }
-
-
-    /* DARK / LIGHT MODE */
-
-    function toggleTheme() {
-      document.body.classList.toggle("light");
-
-      if (document.body.classList.contains("light")) {
-        localStorage.setItem("rajTheme", "light");
-      } else {
-        localStorage.setItem("rajTheme", "dark");
-      }
-    }
-
-    if (localStorage.getItem("rajTheme") === "light") {
-      document.body.classList.add("light");
-    }
-
-
-    /* TYPING ANIMATION */
-
-    const words = [
-      "Class 11 Student 📚",
-      "Technology Explorer 💻",
-      "Future Builder 🚀",
-      "Learning Every Day ✨"
-    ];
-
-    let wordIndex = 0;
-    let charIndex = 0;
-    let deleting = false;
-
-    function typeText() {
-
-      const typing = document.getElementById("typing");
-      const word = words[wordIndex];
-
-      if (!deleting) {
-        typing.textContent = word.substring(0, charIndex + 1);
-        charIndex++;
-
-        if (charIndex === word.length) {
-          deleting = true;
-          setTimeout(typeText, 1200);
-          return;
-        }
-
-      } else {
-        typing.textContent = word.substring(0, charIndex - 1);
-        charIndex--;
-
-        if (charIndex === 0) {
-          deleting = false;
-          wordIndex = (wordIndex + 1) % words.length;
-        }
-      }
-
-      setTimeout(typeText, deleting ? 45 : 80);
-    }
-
-    typeText();
-
-
-    /* ANIMATED STATS */
-
-    const counters = document.querySelectorAll(".stat-number");
-
-    counters.forEach(counter => {
-
-      const target = Number(counter.dataset.target);
-      let current = 0;
-
-      const update = () => {
-
-        if (current < target) {
-
-          current++;
-
-          counter.textContent = current;
-
-          setTimeout(update, 180);
-
-        } else {
-
-          counter.textContent = target;
-
-        }
-
-      };
-
-      update();
-
-    });
-
-
-    /* BACK TO TOP */
-
     const topBtn = document.getElementById("topBtn");
 
-    window.addEventListener("scroll", () => {
-
+    window.addEventListener("scroll", function () {
       if (window.scrollY > 400) {
         topBtn.style.display = "block";
       } else {
         topBtn.style.display = "none";
       }
-
     });
-
-
-    /* CLOSE MOBILE MENU AFTER CLICK */
-
-    document.querySelectorAll("nav a").forEach(link => {
-
-      link.addEventListener("click", () => {
-        document.getElementById("nav").classList.remove("show");
-      });
-
-    });
-
   </script>
 
 </body>
