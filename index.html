@@ -10,16 +10,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO -->
-  <title>Raj.com | Raj's Personal Website</title>
+  <title>Raj.com | Personal Portfolio</title>
   <meta name="description"
-        content="Welcome to Raj.com — Raj's personal website, skills, interests, projects and future goals.">
+        content="Welcome to Raj.com — Raj's personal portfolio featuring skills, projects, education and future goals.">
   <meta name="robots" content="index, follow">
 
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     html {
@@ -28,81 +28,87 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #080808;
-      color: white;
+      background: #070707;
+      color: #fff;
       line-height: 1.6;
+      overflow-x: hidden;
     }
+
+    /* ===== HEADER ===== */
 
     header {
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: rgba(8,8,8,.96);
-      border-bottom: 1px solid #3a0000;
+      z-index: 1000;
+      background: rgba(7,7,7,.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #292929;
       padding: 16px 7%;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
     }
 
     .logo {
-      font-size: 28px;
-      font-weight: 800;
-      color: #ff2020;
+      color: #ff2424;
+      font-size: 27px;
+      font-weight: 900;
+      letter-spacing: .5px;
     }
 
     nav a {
-      color: white;
+      color: #ddd;
       text-decoration: none;
       margin-left: 20px;
-      font-size: 15px;
+      font-size: 14px;
+      transition: .25s;
     }
 
     nav a:hover {
-      color: #ff2020;
+      color: #ff2424;
     }
 
+    /* ===== HERO ===== */
+
     .hero {
-      min-height: 88vh;
+      min-height: 92vh;
+      padding: 80px 7%;
       display: flex;
       align-items: center;
-      padding: 70px 7%;
       background:
-        radial-gradient(circle at 75% 30%,
-        #3b0000 0,
-        #160000 18%,
-        #080808 48%);
+        radial-gradient(circle at 80% 25%, #480000 0, #180000 20%, transparent 45%),
+        #070707;
     }
 
     .hero-content {
-      max-width: 800px;
+      max-width: 850px;
+      animation: fadeUp 1s ease;
     }
 
     .badge {
       display: inline-block;
-      color: #ff4b4b;
-      border: 1px solid #8b0000;
-      padding: 7px 14px;
+      border: 1px solid #8f0000;
+      color: #ff5555;
       border-radius: 30px;
-      margin-bottom: 20px;
-      font-size: 14px;
+      padding: 8px 15px;
+      margin-bottom: 22px;
+      font-size: 13px;
     }
 
-    h1 {
-      font-size: clamp(48px, 9vw, 88px);
-      line-height: 1.05;
-      margin-bottom: 20px;
+    .hero h1 {
+      font-size: clamp(50px, 9vw, 95px);
+      line-height: 1;
+      margin-bottom: 22px;
     }
 
-    h1 span,
-    .section-title span {
+    .hero h1 span {
       color: #ff2020;
     }
 
     .hero p {
-      font-size: 19px;
-      color: #ccc;
-      max-width: 650px;
+      max-width: 680px;
+      color: #bdbdbd;
+      font-size: 18px;
       margin-bottom: 30px;
     }
 
@@ -114,135 +120,298 @@
       padding: 13px 22px;
       border-radius: 8px;
       font-weight: 700;
-      margin-right: 10px;
+      margin: 5px 8px 5px 0;
       transition: .25s;
     }
 
     .btn:hover {
-      transform: translateY(-3px);
-      background: #ff2020;
+      transform: translateY(-4px);
+      background: #ff2525;
     }
 
-    .btn.alt {
+    .btn-outline {
       background: transparent;
       border: 1px solid #e50909;
     }
 
+    /* ===== GENERAL ===== */
+
     section {
-      padding: 80px 7%;
+      padding: 85px 7%;
     }
 
-    .section-title {
-      font-size: 38px;
-      margin-bottom: 30px;
-    }
-
-    .about {
+    .dark-section {
       background: #0d0d0d;
     }
 
-    .about-text {
+    .section-title {
+      font-size: 40px;
+      margin-bottom: 35px;
+    }
+
+    .section-title span {
+      color: #ff2020;
+    }
+
+    .section-subtitle {
+      color: #888;
+      margin-top: -20px;
+      margin-bottom: 35px;
+    }
+
+    /* ===== ABOUT ===== */
+
+    .about-box {
+      max-width: 850px;
       color: #bbb;
-      max-width: 800px;
       font-size: 17px;
     }
 
-    .grid {
+    .about-highlight {
+      margin-top: 25px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 15px;
+      max-width: 850px;
     }
 
-    .card {
+    .mini-box {
       background: #151515;
-      border: 1px solid #2e2e2e;
+      border: 1px solid #292929;
+      border-radius: 13px;
+      padding: 20px;
+    }
+
+    .mini-box strong {
+      display: block;
+      color: #ff3434;
+      font-size: 23px;
+      margin-bottom: 5px;
+    }
+
+    .mini-box span {
+      color: #999;
+      font-size: 13px;
+    }
+
+    /* ===== SKILLS ===== */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .skill {
+      background: #121212;
+      border: 1px solid #292929;
+      padding: 22px;
       border-radius: 14px;
-      padding: 25px;
-      transition: .25s;
     }
 
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: #9d0000;
+    .skill-top {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
     }
 
-    .card h3 {
+    .skill-name {
+      font-weight: 700;
+    }
+
+    .skill-level {
+      color: #ff3c3c;
+      font-size: 13px;
+    }
+
+    .bar {
+      width: 100%;
+      height: 8px;
+      background: #292929;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      background: #e50909;
+      border-radius: 20px;
+    }
+
+    /* ===== PROJECTS ===== */
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .project {
+      background: #151515;
+      border: 1px solid #2d2d2d;
+      border-radius: 15px;
+      padding: 26px;
+      transition: .3s;
+    }
+
+    .project:hover {
+      transform: translateY(-8px);
+      border-color: #a00000;
+    }
+
+    .project-number {
+      color: #777;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+
+    .project h3 {
       color: #ff3333;
       margin-bottom: 10px;
     }
 
-    .card p {
-      color: #bbb;
+    .project p {
+      color: #aaa;
     }
 
-    .projects {
-      background: #0d0d0d;
+    /* ===== EDUCATION ===== */
+
+    .timeline {
+      max-width: 850px;
+      border-left: 2px solid #750000;
+      padding-left: 25px;
     }
 
-    .project-number {
-      font-size: 14px;
-      color: #777;
+    .timeline-item {
+      position: relative;
+      background: #151515;
+      border: 1px solid #292929;
+      padding: 22px;
+      margin-bottom: 20px;
+      border-radius: 13px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: #e50909;
+      border-radius: 50%;
+      left: -32px;
+      top: 27px;
+    }
+
+    .timeline-item h3 {
+      color: #ff3434;
+      margin-bottom: 5px;
+    }
+
+    .timeline-item p {
+      color: #aaa;
+    }
+
+    /* ===== GOALS ===== */
+
+    .goals {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .goal {
+      background: #151515;
+      border: 1px solid #292929;
+      padding: 25px;
+      border-radius: 14px;
+    }
+
+    .goal h3 {
+      color: #ff3333;
       margin-bottom: 8px;
     }
 
-    .goals-box {
-      max-width: 850px;
-      background: #151515;
-      border: 1px solid #2e2e2e;
-      border-radius: 15px;
-      padding: 30px;
+    .goal p {
+      color: #aaa;
     }
 
-    .goals-box p {
-      color: #bbb;
-      margin-bottom: 12px;
-    }
+    /* ===== CONTACT ===== */
 
     .contact {
       text-align: center;
+      background:
+        radial-gradient(circle at center, #280000 0, #080808 50%);
     }
 
     .contact p {
-      color: #bbb;
-      margin-bottom: 20px;
+      color: #aaa;
+      margin-bottom: 25px;
     }
+
+    /* ===== FOOTER ===== */
 
     footer {
       text-align: center;
-      padding: 25px;
-      color: #888;
+      padding: 28px;
+      color: #777;
       border-top: 1px solid #222;
+      background: #050505;
     }
 
-    @media (max-width: 700px) {
+    /* ===== ANIMATION ===== */
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===== MOBILE ===== */
+
+    @media (max-width: 800px) {
+
       header {
-        padding: 15px 5%;
+        padding: 14px 5%;
       }
 
       nav a {
-        margin-left: 9px;
-        font-size: 12px;
+        margin-left: 8px;
+        font-size: 11px;
       }
 
       .hero {
-        padding: 55px 5%;
-        min-height: 82vh;
+        padding: 60px 5%;
+        min-height: 85vh;
       }
 
       section {
-        padding: 60px 5%;
+        padding: 65px 5%;
       }
 
-      .grid {
+      .section-title {
+        font-size: 33px;
+      }
+
+      .about-highlight,
+      .skills-grid,
+      .project-grid,
+      .goals {
         grid-template-columns: 1fr;
       }
 
       .hero p {
-        font-size: 17px;
+        font-size: 16px;
       }
 
-      .section-title {
-        font-size: 32px;
+      .hero h1 {
+        font-size: clamp(48px, 17vw, 75px);
       }
     }
   </style>
@@ -250,27 +419,28 @@
 
 <body>
 
-<header>
-  <div class="logo">Raj.com</div>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">Raj.com</div>
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#goals">Goals</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#goals">Goals</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-<main>
 
-  <!-- HOME -->
+  <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero-content">
 
       <div class="badge">
-        Welcome to my personal website
+        🚀 Welcome to Raj.com
       </div>
 
       <h1>
@@ -278,14 +448,15 @@
       </h1>
 
       <p>
-        Welcome to Raj.com — my personal space on the internet.
-        Here you can learn about me, my interests, skills, projects
-        and future goals.
+        Welcome to my personal portfolio. Explore my interests,
+        skills, projects, education and future goals.
       </p>
 
-      <a class="btn" href="#about">Explore</a>
+      <a class="btn" href="#projects">
+        View Projects
+      </a>
 
-      <a class="btn alt" href="#contact">
+      <a class="btn btn-outline" href="#contact">
         Contact Me
       </a>
 
@@ -294,17 +465,39 @@
 
 
   <!-- ABOUT -->
-  <section class="about" id="about">
+  <section class="dark-section" id="about">
 
     <h2 class="section-title">
       About <span>Me</span>
     </h2>
 
-    <p class="about-text">
-      I'm Raj. This website is my personal space where I can share
-      information about myself, my interests, things I am learning
-      and my future goals.
-    </p>
+    <div class="about-box">
+      <p>
+        I'm Raj. Welcome to my personal website. I enjoy learning
+        new things, exploring technology and building useful projects.
+        This website is a place where I can share my journey and
+        future goals.
+      </p>
+    </div>
+
+    <div class="about-highlight">
+
+      <div class="mini-box">
+        <strong>💻</strong>
+        <span>Technology</span>
+      </div>
+
+      <div class="mini-box">
+        <strong>📚</strong>
+        <span>Learning</span>
+      </div>
+
+      <div class="mini-box">
+        <strong>🚀</strong>
+        <span>Future Goals</span>
+      </div>
+
+    </div>
 
   </section>
 
@@ -316,27 +509,50 @@
       My <span>Skills</span>
     </h2>
 
-    <div class="grid">
+    <p class="section-subtitle">
+      Skills and technologies I am learning.
+    </p>
 
-      <div class="card">
-        <h3>💻 Technology</h3>
-        <p>
-          Interested in websites, computers and modern technology.
-        </p>
+    <div class="skills-grid">
+
+      <div class="skill">
+        <div class="skill-top">
+          <span class="skill-name">HTML</span>
+          <span class="skill-level">Learning</span>
+        </div>
+        <div class="bar">
+          <span style="width:75%"></span>
+        </div>
       </div>
 
-      <div class="card">
-        <h3>🌐 Web Development</h3>
-        <p>
-          Learning HTML, CSS and the basics of creating websites.
-        </p>
+      <div class="skill">
+        <div class="skill-top">
+          <span class="skill-name">CSS</span>
+          <span class="skill-level">Learning</span>
+        </div>
+        <div class="bar">
+          <span style="width:65%"></span>
+        </div>
       </div>
 
-      <div class="card">
-        <h3>📚 Learning</h3>
-        <p>
-          Always learning new concepts and improving my knowledge.
-        </p>
+      <div class="skill">
+        <div class="skill-top">
+          <span class="skill-name">Web Development</span>
+          <span class="skill-level">Growing</span>
+        </div>
+        <div class="bar">
+          <span style="width:55%"></span>
+        </div>
+      </div>
+
+      <div class="skill">
+        <div class="skill-top">
+          <span class="skill-name">Technology</span>
+          <span class="skill-level">Interested</span>
+        </div>
+        <div class="bar">
+          <span style="width:70%"></span>
+        </div>
       </div>
 
     </div>
@@ -345,35 +561,69 @@
 
 
   <!-- PROJECTS -->
-  <section class="projects" id="projects">
+  <section class="dark-section" id="projects">
 
     <h2 class="section-title">
       My <span>Projects</span>
     </h2>
 
-    <div class="grid">
+    <p class="section-subtitle">
+      Projects I have created or plan to build.
+    </p>
 
-      <div class="card">
+    <div class="project-grid">
+
+      <div class="project">
         <div class="project-number">PROJECT 01</div>
         <h3>🌐 Raj.com</h3>
         <p>
-          My personal website created using HTML and CSS.
+          My personal portfolio website built using HTML and CSS.
         </p>
       </div>
 
-      <div class="card">
+      <div class="project">
         <div class="project-number">PROJECT 02</div>
         <h3>🚀 Coming Soon</h3>
         <p>
-          A new project will be added here in the future.
+          A new web project will be added here in the future.
         </p>
       </div>
 
-      <div class="card">
+      <div class="project">
         <div class="project-number">PROJECT 03</div>
         <h3>💡 Future Project</h3>
         <p>
-          More interesting projects and experiments coming soon.
+          More experiments and useful projects coming soon.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- EDUCATION -->
+  <section id="education">
+
+    <h2 class="section-title">
+      My <span>Education</span>
+    </h2>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <h3>📚 Class 11</h3>
+        <p>
+          Continuing my school education and building strong
+          knowledge for the future.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>🎓 Future Studies</h3>
+        <p>
+          Planning to continue higher education and develop
+          professional skills.
         </p>
       </div>
 
@@ -383,21 +633,41 @@
 
 
   <!-- GOALS -->
-  <section id="goals">
+  <section class="dark-section" id="goals">
 
     <h2 class="section-title">
       Future <span>Goals</span>
     </h2>
 
-    <div class="goals-box">
+    <div class="goals">
 
-      <p>🎯 Learn new technology and useful skills.</p>
+      <div class="goal">
+        <h3>🎯 Learn</h3>
+        <p>
+          Learn new technologies and useful skills.
+        </p>
+      </div>
 
-      <p>💻 Improve my web development knowledge.</p>
+      <div class="goal">
+        <h3>💻 Build</h3>
+        <p>
+          Create useful websites and digital projects.
+        </p>
+      </div>
 
-      <p>📚 Keep learning and growing.</p>
+      <div class="goal">
+        <h3>📈 Improve</h3>
+        <p>
+          Keep improving my knowledge and abilities.
+        </p>
+      </div>
 
-      <p>🚀 Build useful projects in the future.</p>
+      <div class="goal">
+        <h3>🚀 Grow</h3>
+        <p>
+          Work toward my education and future career goals.
+        </p>
+      </div>
 
     </div>
 
@@ -412,7 +682,7 @@
     </h2>
 
     <p>
-      Follow me on Instagram.
+      Follow me on Instagram and stay connected.
     </p>
 
     <a
@@ -425,12 +695,11 @@
 
   </section>
 
-</main>
 
-
-<footer>
-  © 2026 Raj.com • Made by Raj
-</footer>
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Raj.com • Built by Raj
+  </footer>
 
 </body>
 </html>
