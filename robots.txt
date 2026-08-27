@@ -1,1 +1,4 @@
+User-agent: *
+Allow: /
 
+Sitemap: https://rawatraj8127-dot.github.io/Raj.com..in/sitemap.xml
